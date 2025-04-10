@@ -200,8 +200,9 @@ export default {
         cancelButtonText: "нет",
         type: "warning",
       })
-        .then(() => {
-          store.dispatch("signout"); //вызов метода выхода из аккаунта (в файле store)
+        .then( async() => {
+          await store.dispatch("signout"); //вызов метода выхода из аккаунта (в файле store)
+          await this.$router.push('/'); //исправлена ошибка, чтобы при выходе из аккаунта перенаправляло на главную страницу
           this.$message({
             type: "info",
             message: "Выполнен выход из аккаунта",
